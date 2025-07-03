@@ -3,6 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+<<<<<<< HEAD
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task08", "task08\task08.csproj", "{E22F1814-E4C0-4BA4-BA22-7D6F551052EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task08tests", "task08tests\task08tests.csproj", "{04702F77-A6C6-4CB6-956B-B09C596D390A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandLib", "CommandLib\CommandLib.csproj", "{BF2994B2-E45F-40C8-9561-07DA5B9A6C13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystemCommands", "FileSystemCommands\FileSystemCommands.csproj", "{E1EAA4F2-5884-473C-A1F7-5200E60F04FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandRunner", "CommandRunner\CommandRunner.csproj", "{01C55678-07B6-4F69-AC3D-010F1CBCD394}"
+EndProject
+>>>>>>> 2ed452d (Задание 08)
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -11,4 +24,37 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+<<<<<<< HEAD
+=======
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{036B7BA3-8B99-42E0-BEBD-2A92992C840D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{036B7BA3-8B99-42E0-BEBD-2A92992C840D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{036B7BA3-8B99-42E0-BEBD-2A92992C840D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{036B7BA3-8B99-42E0-BEBD-2A92992C840D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C8AC145-E99B-42CA-9D80-8CEF9BE132AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C8AC145-E99B-42CA-9D80-8CEF9BE132AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C8AC145-E99B-42CA-9D80-8CEF9BE132AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C8AC145-E99B-42CA-9D80-8CEF9BE132AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E22F1814-E4C0-4BA4-BA22-7D6F551052EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E22F1814-E4C0-4BA4-BA22-7D6F551052EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E22F1814-E4C0-4BA4-BA22-7D6F551052EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E22F1814-E4C0-4BA4-BA22-7D6F551052EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04702F77-A6C6-4CB6-956B-B09C596D390A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04702F77-A6C6-4CB6-956B-B09C596D390A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04702F77-A6C6-4CB6-956B-B09C596D390A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04702F77-A6C6-4CB6-956B-B09C596D390A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF2994B2-E45F-40C8-9561-07DA5B9A6C13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF2994B2-E45F-40C8-9561-07DA5B9A6C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF2994B2-E45F-40C8-9561-07DA5B9A6C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF2994B2-E45F-40C8-9561-07DA5B9A6C13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1EAA4F2-5884-473C-A1F7-5200E60F04FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1EAA4F2-5884-473C-A1F7-5200E60F04FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1EAA4F2-5884-473C-A1F7-5200E60F04FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1EAA4F2-5884-473C-A1F7-5200E60F04FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01C55678-07B6-4F69-AC3D-010F1CBCD394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01C55678-07B6-4F69-AC3D-010F1CBCD394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01C55678-07B6-4F69-AC3D-010F1CBCD394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01C55678-07B6-4F69-AC3D-010F1CBCD394}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+>>>>>>> 2ed452d (Задание 08)
 EndGlobal
