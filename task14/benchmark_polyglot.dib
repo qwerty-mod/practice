@@ -1,0 +1,62 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"name":"csharp"},{"name":"fsharp","languageName":"F#","aliases":["f#","fs"]},{"name":"html","languageName":"HTML"},{"name":"http","languageName":"HTTP"},{"name":"javascript","languageName":"JavaScript","aliases":["js"]},{"name":"mermaid","languageName":"Mermaid"},{"name":"pwsh","languageName":"PowerShell","aliases":["powershell"]},{"name":"value"}]}}
+
+#!csharp
+
+#r "nuget: ScottPlot, 5.0.15"
+#r "C:/Users/user/practice/task14/bin/Debug/net8.0/task14.dll"
+
+using System;
+using System.IO;
+using System.Linq;
+using ScottPlot;
+using Task14;
+
+display("библиотеки успешно загружены");
+
+#!csharp
+
+double step = Task14.IntegrationBenchmarks.PickMinimalStep();
+
+var benchmarkResults = Task14.IntegrationBenchmarks.BenchmarkThreads(step);
+
+display($"тестирование завершено для {benchmarkResults.Count} конфигураций (шаг {step:e})");
+
+#!csharp
+
+var plt = new ScottPlot.Plot();
+
+plt.Title("Производительность вычисления интеграла");
+plt.XLabel("Количество потоков");
+plt.YLabel("Время (мс)");
+
+double[] xValues = benchmarkResults.Select(x => (double)x.threads).ToArray();
+double[] yValues = benchmarkResults.Select(x => x.timeMs).ToArray();
+
+plt.Add.Scatter(xValues, yValues);
+plt.Save("grafik.png", 800, 500);
+
+display("график производительности (grafik.png)");
+
+#!csharp
+
+var singleThread = benchmarkResults.First(x => x.threads == 1);
+var optimal = benchmarkResults.OrderBy(x => x.timeMs).First();
+
+double speedup = (singleThread.timeMs - optimal.timeMs) / singleThread.timeMs * 100;
+
+string report = $"""
+РЕЗУЛЬТАТЫ ТЕСТИРОВАНИЯ
+------------------------
+точность: 1e-4
+оптимальный шаг: {step:e4}
+оптимальное кол-во потоков: {optimal.threads}
+время однопоточной версии: {singleThread.timeMs:F2} мс
+время многопоточной версии: {optimal.timeMs:F2} мс
+Ускорение: {speedup:F1}%
+""";
+
+display(report);
+
+System.IO.File.WriteAllText("benchmark_results.txt", report);
