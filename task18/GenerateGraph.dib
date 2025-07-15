@@ -1,0 +1,64 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"name":"csharp"},{"name":"fsharp","languageName":"F#","aliases":["f#","fs"]},{"name":"html","languageName":"HTML"},{"name":"http","languageName":"HTTP"},{"name":"javascript","languageName":"JavaScript","aliases":["js"]},{"name":"mermaid","languageName":"Mermaid"},{"name":"pwsh","languageName":"PowerShell","aliases":["powershell"]},{"name":"value"}]}}
+
+#!csharp
+
+#r "nuget: ScottPlot, 4.1.60"
+using ScottPlot;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+
+var stats = new Dictionary<string, int>
+{
+    { "InstantCommand", 5 },
+    { "CountingCommand", 12 },
+    { "OtherCommand", 3 },
+};
+
+
+var plt = new Plot(600, 400);
+
+var labels = stats.Keys.ToArray();
+var values = stats.Values.Select(x => (double)x).ToArray();
+double[] positions = Enumerable.Range(0, labels.Length).Select(i => (double)i).ToArray();
+
+plt.AddBar(values, positions);
+plt.XTicks(positions, labels);
+plt.Title("Количество вызовов Execute по типу команд");
+plt.YLabel("Количество вызовов");
+plt.XLabel("Тип команды");
+
+var pngPath = Path.Combine(Directory.GetCurrentDirectory(), "command_stats.png");
+plt.SaveFig(pngPath);
+Console.WriteLine("Сохранён PNG: " + pngPath);
+
+
+var txtPath = Path.Combine(Directory.GetCurrentDirectory(), "command_stats.txt");
+
+using (var writer = new StreamWriter(txtPath))
+{
+    foreach (var kvp in stats)
+    {
+        string commandType = kvp.Key;
+        int count = kvp.Value;
+        string timesWord = GetRussianTimesWord(count);
+        writer.WriteLine($"Команда типа {commandType} была вызвана или выполнена {count} {timesWord}.");
+    }
+}
+
+Console.WriteLine("Сохранён TXT: " + txtPath);
+
+
+string GetRussianTimesWord(int number)
+{
+    number = Math.Abs(number) % 100;
+    int n1 = number % 10;
+    if (number > 10 && number < 20) return "раз";
+    if (n1 > 1 && n1 < 5) return "раза";
+    if (n1 == 1) return "раз";
+    return "раз";
+}
